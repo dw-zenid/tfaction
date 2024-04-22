@@ -1,5 +1,5 @@
 {
-  "$id": "https://github.com/suzuki-shunsuke/tfaction/blob/main/schema/tfaction.json",
+  "$id": "https://github.com/dw-zenid/tfaction/blob/main/schema/tfaction.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "tfaction.yaml",
   "type": "object",

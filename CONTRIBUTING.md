@@ -56,20 +56,20 @@ You have to build GitHub Actions workflows with tfaction and test your changes o
 
 When a pull request is created or updated, the branch `pr/<pull request number>` is also created or updated by GitHub Actions.
 
-- https://github.com/suzuki-shunsuke/tfaction/actions/workflows/create-pr-branch.yaml
-- https://github.com/suzuki-shunsuke/tfaction/blob/main/.github/workflows/create-pr-branch.yaml
+- https://github.com/dw-zenid/tfaction/actions/workflows/create-pr-branch.yaml
+- https://github.com/dw-zenid/tfaction/blob/main/.github/workflows/create-pr-branch.yaml
 
 > [!WARNING]
 > These branches aren't created and updated against pull requests from fork repositories.
-> Maintainers have to run [the workflow](https://github.com/suzuki-shunsuke/tfaction/actions/workflows/create-pr-branch.yaml) manually.
+> Maintainers have to run [the workflow](https://github.com/dw-zenid/tfaction/actions/workflows/create-pr-branch.yaml) manually.
 
 You can test your pull request version by `pr/<pull request number>`.
 
-For example, if you want to test the pull request [#1513](https://github.com/suzuki-shunsuke/tfaction/pull/1513),
+For example, if you want to test the pull request [#1513](https://github.com/dw-zenid/tfaction/pull/1513),
 you can update tfaction's version of your workflows to `pr/1513`.
 
 e.g.
 
 ```yaml
-- uses: suzuki-shunsuke/tfaction/setup@pr/1513
+- uses: dw-zenid/tfaction/setup@pr/1513
 ```

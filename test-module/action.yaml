@@ -11,11 +11,11 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: suzuki-shunsuke/tfaction/get-global-config@main
+    - uses: dw-zenid/tfaction/get-global-config@main
       id: global-config
 
     - run: github-comment exec -- terraform init
-      # https://github.com/suzuki-shunsuke/tfaction/issues/1576
+      # https://github.com/dw-zenid/tfaction/issues/1576
       shell: bash
       working-directory: ${{ env.TFACTION_TARGET }}
       env:
