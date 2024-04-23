@@ -21,11 +21,11 @@ outputs:
 runs:
   using: composite
   steps:
-    - uses: dw-zenid/tfaction/get-target-config@main
+    - uses: dw-zenid/tfaction/get-target-config@v1.4.0-2
       id: target-config
-    - uses: dw-zenid/tfaction/get-global-config@main
+    - uses: dw-zenid/tfaction/get-global-config@v1.4.0-2
       id: global-config
-    - uses: dw-zenid/tfaction/check-terraform-skip@main
+    - uses: dw-zenid/tfaction/check-terraform-skip@v1.4.0-2
       id: check-terraform-skip
       with:
         labels: ${{ env.CI_INFO_TEMP_DIR }}/labels.txt
