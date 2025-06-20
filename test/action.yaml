@@ -26,6 +26,19 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
         TF_COMMAND: ${{ steps.target-config.outputs.terraform_command }}
+    - name: DEBUG
+      run: |
+        echo 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv'
+        pwd
+        echo '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+        echo 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv'
+        ls -al
+        echo '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+        echo 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv'
+        ls -al ./.terraform/
+        echo '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
+      shell: bash
+      working-directory: ${{ steps.target-config.outputs.working_directory }}
 
     - uses: suzuki-shunsuke/trivy-config-action@6c7c845cbf76e5745c4d772719de7a34453ae81d # v0.2.2
       if: fromJSON(steps.target-config.outputs.enable_trivy) && steps.target-config.outputs.destroy != 'true'
