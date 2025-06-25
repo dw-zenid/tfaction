@@ -26,13 +26,6 @@ runs:
       env:
         GITHUB_TOKEN: ${{ inputs.github_token }}
         TF_COMMAND: ${{ steps.target-config.outputs.terraform_command }}
-    - name: DEBUG
-      run: |
-        echo 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv'
-        echo ${{ toJSON(steps.target-config.outputs) }}
-        echo '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
-      shell: bash
-      working-directory: ${{ steps.target-config.outputs.working_directory }}
 
     - uses: suzuki-shunsuke/trivy-config-action@6c7c845cbf76e5745c4d772719de7a34453ae81d # v0.2.2
       if: fromJSON(steps.target-config.outputs.enable_trivy) && steps.target-config.outputs.destroy != 'true'
@@ -50,7 +43,7 @@ runs:
         ignore_hcl_errors: "true"
 
     # deep check requires AWS credentials
-    - uses: suzuki-shunsuke/github-action-tflint@0b7fbc35b0d512749f35c3036df57c3a95d3e9e1 # v1.1.0
+    - uses: suzuki-shunsuke/github-action-tflint@23bd81c98027dfecfdf43f7e95e119a32bff982d # v1.1.2
       if: fromJSON(steps.target-config.outputs.enable_tflint) && steps.target-config.outputs.destroy != 'true'
       with:
         github_token: ${{ inputs.github_token }}
