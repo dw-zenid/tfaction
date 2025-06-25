@@ -29,7 +29,7 @@ runs:
     - name: DEBUG
       run: |
         echo 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv'
-        echo ${{ steps.target-config.outputs }}
+        echo ${{ toJSON(steps.target-config.outputs) }}
         echo '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'
       shell: bash
       working-directory: ${{ steps.target-config.outputs.working_directory }}
